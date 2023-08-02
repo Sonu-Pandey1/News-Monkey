@@ -11,15 +11,16 @@ export default class NewsItems extends Component {
         // .then((res)=>{
         //     console.log(res.articles[1])
         // })
-           let {title,content,imgUrl}=this.props
+           let {title,content,imgUrl,newsUrl,author}=this.props
         return (
             <>
-                <div className="card" style={{width: "18rem"}}>
+                <div className="card my-3" style={{width: "18rem"}}>
                     <img src={imgUrl} className="card-img-top" alt="" />
                     <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{content}</p>
-                        <a href="/itemas" className="btn btn-primary">See More</a>
+                        <h5 className="card-title">{title}...</h5>
+                        <h6 className="card-title">{author}...</h6>
+                        <p className="card-text">{content}...</p>
+                        <a href={newsUrl} target="_blank" rel="noreferrer" className="btn btn-primary">Reed More</a>
                     </div>
                 </div>
             </>

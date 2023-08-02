@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Component } from "react";
 import NewsItems from "../NewsItems";
+import Loding from "./Loding";
 
 
 export default class News extends Component{
@@ -16,10 +17,15 @@ export default class News extends Component{
     }
     async componentDidMount(){
     //    try 
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=14c338f4668b4b64a24d28c9c17ec31b&page=${this.state.page}${this.props.pageSize}`
+        // let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${this.props.apiKey}&page=${this.state.page}${this.props.pageSize}`
+        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${this.props.apiKey}&page=${this.state.page}${this.props.pageSize}`
+        this.setState({loding:true})
         let data = await fetch(url)
         let data2 =  await data.json()
         console.log(data2)
+        this.setState({loding:false})
+
+    
         // console.log(this.state.articles)
         this.setState({articles:data2.articles,totalResults:data2.totalResults})
       
@@ -39,15 +45,19 @@ export default class News extends Component{
           console.log("bus ab khtm")
         }
         else{
-            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=14c338f4668b4b64a24d28c9c17ec31b&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
+            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${this.props.apiKey}&page=${this.state.page+1}&pageSize=${this.props.pageSize}`
+        this.setState({loding:true})
+
             let data = await fetch(url)
             let data2 =  await data.json()
             console.log(data2)
             // console.log(this.state.articles)
+            this.setState({loding:false})
     
             this.setState({
                 page:this.state.page+1,
                 articles:data2.articles
+             
             })
             // console.log(this.state.page)
         }
@@ -58,10 +68,14 @@ export default class News extends Component{
        
         console.log("previous clicked")
         
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=14c338f4668b4b64a24d28c9c17ec31b&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${this.props.apiKey}&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+        this.setState({loding:true})
+
         let data = await fetch(url)
         let data2 =  await data.json()
         console.log(data2)
+        this.setState({loding:false})
+
         // console.log(this.state.articles)
 
         this.setState({
@@ -72,51 +86,16 @@ export default class News extends Component{
         // console.log(this.state.page)
     }
 
-   
-
-    //  handlePrevClick = async ()=>{
-    //     console.log("Previous");
-    //     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=dbe57b028aeb41e285a226a94865f7a7&page=${this.state.page - 1}&pageSize=20`;
-    //     let data = await fetch(url);
-    //     let parsedData = await data.json()
-    //     console.log(parsedData);  
-    //     this.setState({
-    //         page: this.state.page - 1,
-    //         articles: parsedData.articles
-    //     })
-
-    // }
-
-    //  handleNextClick = async ()=>{
-    //     console.log("Next"); 
-    //     if (this.state.page + 1 > Math.ceil(this.state.totalResults/20)){
-
-    //     }
-    //     else{
-    //         let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=dbe57b028aeb41e285a226a94865f7a7&page=${this.state.page + 1}&pageSize=20`;
-    //         let data = await fetch(url);
-    //         let parsedData = await data.json()
-    //         console.log(parsedData);  
-    //         this.setState({
-    //             page: this.state.page + 1,
-    //             articles: parsedData.articles
-    //         })
-    // }
-    // }
     
     render(){
-       
-
-            // this.state.articles.map((items)=>{
-            //     console.log(items.title)
-            // })
-        // console.log(article)
+    
         return(
             <>
-                <h1>News component</h1>
+                <h1 className=" text-center">NewsMonkey-Top Headlines </h1>
+                {this.state.loding&&<Loding/>}
                 <div className="container my-3">
                     <div className="row" >
-                        {this.state.articles.map((items)=>{
+                        {!this.state.loding && this.state.articles.map((items)=>{
                             return  <div key={items.urlToImage} className="col col-4"><NewsItems author={items.author?items.author:"sonu pandey"} title={items.title?items.title:""} content={items.description?items.description.slice(0.,90):"null"} imgUrl={items.urlToImage?items.urlToImage:"https://www.hollywoodreporter.com/wp-content/uploads/2023/07/Screen-Shot-2023-07-28-at-1.57.08-PM-copy-H-2023.jpg?w=1024"} newsUrl={items.url?items.url:""}/></div>
                         })}
                     </div>

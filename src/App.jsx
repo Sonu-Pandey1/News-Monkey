@@ -12,7 +12,7 @@ export default class App extends Component{
             <>
                <Navbar/>
                {/* <Loding/> */}
-               <News pageSize={12} apiKey={"14c338f4668b4b64a24d28c9c17ec31b"}/>
+               <News pageSize={12} apiKey={'14c338f4668b4b64a24d28c9c17ec31b'}/>
             </>
         )
     }

@@ -5,6 +5,7 @@ import News from "./component/News";
 // import Loding from "./component/Loding";
 import { Route, Routes } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
+import "./App.jsx"
 
 
 export default class App extends Component {
@@ -22,8 +23,8 @@ export default class App extends Component {
             <>
                 <Navbar />
                 <LoadingBar
-                    color='#f11946'
-                    height={2}
+                    color='#4eb3c7'
+                    height={3}
                     progress={this.state.progress}
                     // onLoaderFinished={() => setProgress(0)}
                 />

@@ -13,12 +13,14 @@ export default class NewsItems extends Component {
                     </span>
                   </div>
                     
-                    <img src={imgUrl} className="card-img-top" alt="" />
+                    <div className="ddd">
+                    <img src={imgUrl} className="card-img-top img-fluid img-thumbnail img" alt="" />
+                    </div>
                     <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <h6 className="card-title">{author}</h6>
-                        <p className="card-text">{content}...</p>
-                        <p className="card-text"><small className="text-body-secondary">By {author} on {new Date(date).toUTCString()}</small></p>
+                        <h5 className="card-title titlefont">{title}...</h5>
+                        {/* <h6 className="card-title">{author}</h6> */}
+                        <p className="card-text titlefontt">{content}...</p>
+                        <p className="card-text textBold"><small className="text-body-secondary">By {author} on {new Date(date).toUTCString()}</small></p>
                         <a href={newsUrl} target="_blank" rel="noreferrer" className="btn btn-primary">Reed More</a>
                     </div>
                 </div>

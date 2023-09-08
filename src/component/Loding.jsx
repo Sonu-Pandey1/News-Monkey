@@ -5,8 +5,8 @@ export default class Loding extends Component{
     render(){
         return(
             <>
-                <div className=" text-center">
-                    <img src="https://media.tenor.com/ao5pNZBUF58AAAAC/transparent-loading.gif" alt="error"/>
+                <div className=" text-center" >
+                    <img src="https://media.tenor.com/ao5pNZBUF58AAAAC/transparent-loading.gif "  style={{height:"95px"}} alt="error"/>
                 </div>
             </>
         )

@@ -111,7 +111,7 @@ export default class News extends Component {
                       <div className="container">
                         <div className="row " >
                             {this.state.articles.map((items) => {
-                                return <div key={items.urlToImage} className=" col-md-4"><NewsItems author={items.author ? items.author : "Sonu Pandey"} title={items.title ? items.title.slice(0, 80) : ""} content={items.description ? items.description.slice(0, 80) : "There Are Three Gates To Self-destruction And Hell: Lust, Anger & Greed.” Lord Krishna..."} imgUrl={items.urlToImage ? items.urlToImage : "https://t4.ftcdn.net/jpg/05/71/81/85/240_F_571818551_ZSKAUfkPMzHJKXQUIGJPyRqQ2wi20UG7.jpg"} newsUrl={items.url ? items.url : ""} Author={items.author} date={items.publishedAt} source={items.source.name} category={this.props.category} /></div>
+                                return <div key={items.urlToImage} className=" col-sm-12 col-md-6 col-lg-4 "><NewsItems author={items.author ? items.author : "Sonu Pandey"} title={items.title ? items.title.slice(0, 80) : ""} content={items.description ? items.description.slice(0, 80) : "There Are Three Gates To Self-destruction And Hell: Lust, Anger & Greed.” Lord Krishna..."} imgUrl={items.urlToImage ? items.urlToImage : "https://t4.ftcdn.net/jpg/05/71/81/85/240_F_571818551_ZSKAUfkPMzHJKXQUIGJPyRqQ2wi20UG7.jpg"} newsUrl={items.url ? items.url : ""} Author={items.author} date={items.publishedAt} source={items.source.name} category={this.props.category} /></div>
                             })}
                         </div>
                         </div>

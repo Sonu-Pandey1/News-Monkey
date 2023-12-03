@@ -6,6 +6,7 @@ import News from "./component/News";
 import { Route, Routes } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 import "./App.jsx"
+import Slider from "./component/ProjectSlider/Slider.jsx"
 
 
 export default class App extends Component {
@@ -52,6 +53,7 @@ export default class App extends Component {
 
                     <Route path="/contact" element={<h1 >contact us</h1>} />
                 </Routes>
+                <Slider/>
             </>
         )
     }

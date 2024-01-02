@@ -17,7 +17,7 @@ export default class News extends Component {
     }
 
     static propTypes = {
-        country: PropTypes.string,
+        country: PropTypes.string, 
         page: PropTypes.number,
         category: PropTypes.string
     }
